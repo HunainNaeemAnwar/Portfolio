@@ -1,3 +1,4 @@
+import { Inter } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,6 +12,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        Inter: "var(--font-Inter)",
+        Montserrat: "var(--font-Montserrat)",
+        Poppins: "var(--font-Poppins)",
+        Satoshi: "var(--font-satoshi-medium)",
+        Integral: "var(--font-integral-cf)",
       },
     },
   },
