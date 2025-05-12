@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     // recruiter message to me
     const internalMail = await resend.emails.send({
       from: "Hunain Portfolio <onboarding@resend.dev>",
-      to: "arhaamkhan125@gmail.com",
+      to: "hunainnaeemanwar@gmail.com",
       subject: `New message from ${email} — ${subject}`,
       html: `
         <h3>You got a new message from your portfolio form.</h3>
