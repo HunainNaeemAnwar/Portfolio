@@ -23,7 +23,7 @@ const MenuOverlay = ({
             <button
               onClick={() => {
                 handleScroll(link.path);
-                setNavbarOpen(false); // ✅ Close navbar on click
+                setNavbarOpen(false); 
               }}
               className="text-white hover:text-gray-300 text-xl"
             >

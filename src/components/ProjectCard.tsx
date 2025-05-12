@@ -1,6 +1,8 @@
 import React from "react";
-import { CodeBracketIcon, EyeIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
+import { BsGithub } from "react-icons/bs";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
 const ProjectCard = ({
   imgUrl,
   title,
@@ -11,42 +13,52 @@ const ProjectCard = ({
   imgUrl: string;
   title: string;
   descrition: string;
-  git: string;
-  vercel: string;
+  git?: string;
+  vercel?: string;
 }) => {
   return (
-    <div className="place-self-center">
-      <div
-        className=" w-64 h-48 mr-0 rounded-t-lg relative group"
-        style={{
-          background: `url(${imgUrl})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="overlay absolute top-0 left-0 right-0 w-full h-full hidden bg-[#000] transition-all duration-300  rounded-t-lg bg-opacity-0 group-hover:flex group-hover:bg-opacity-80   items-center justify-center">
-          <Link href={git} target="_blank">
-            <CodeBracketIcon className="w-6 h-6 m-2 cursor-pointer text-[#979696] hover:text-white" />
+    <div className="place-self-center transition-transform hover:scale-[1.03]">
+      <div className="w-64 h-48 rounded-t-xl relative group overflow-hidden shadow-md">
+        <Link href={vercel || "/"}>
+          <div
+            className="w-full h-full"
+            style={{
+              background: `url(${imgUrl})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute top-0 left-0 w-full h-full bg-black/0 group-hover:bg-black/90 transition-all duration-300 flex items-center justify-center">
+              <span className="text-white opacity-0 group-hover:opacity-100 transition duration-200 text-sm font-Montserrat">Preview</span>
+            </div>
+          </div>
+        </Link>
+      </div>
+
+      <div className="rounded-b-xl w-64 bg-[#6d6d6d] text-white px-4 py-5 shadow-lg">
+        <h5 className="font-semibold text-lg mb-2 font-Poppins">{title}</h5>
+        <p className="text-sm text-gray-200 leading-6 font-Poppins">{descrition}</p>
+
+        <div className="flex justify-center gap-4 mt-6">
+          <Link
+            href={git||"/"}
+            className="flex items-center gap-2 px-3 py-2 bg-[#212121] rounded-md hover:bg-[#333] transition"
+          >
+            <BsGithub className="w-5 h-5" />
+            Code
           </Link>
-          <Link href={vercel} target="_blank">
-            <EyeIcon className="w-6 h-6 m-2 cursor-pointer  text-[#979696] hover:text-white" />
+
+          <Link
+            href={vercel ||"/"}
+            className="flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-[#947458] to-[#af8d6d] text-black rounded-md hover:scale-105 transition"
+          >
+            <FaExternalLinkAlt className="w-5 h-5" />
+            Live
           </Link>
         </div>
       </div>
-      <Link href={vercel}>
-        {" "}
-        <div className="text-white rounded-b-lg w-64 h-20   bg-[#6d6d6d] text-center  px-1 py-2">
-          <h5 className="font-semibold text-[20px] mb-1 font-Satoshi">
-            {title}
-          </h5>
-          <div>
-            <p className="text-[16px] mb-1 font-Poppins leading-[14px]">
-              {descrition.slice(0, 40)}
-            </p>
-          </div>
-        </div>
-      </Link>
     </div>
   );
 };
+
 export default ProjectCard;

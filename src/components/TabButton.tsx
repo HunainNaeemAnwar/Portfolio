@@ -10,8 +10,8 @@ const TabButton = ({
   children: React.ReactNode;
 }) => {
   const buttonClasses = active
-    ? "text-white border-b-[2px] border-[#605F5E]  text-[22px] lg:text-[24px] font-poppins "
-    : "text-[#ADB7BE] text-[22px] lg:text-[24px] font-poppins  ";
+    ? "text-white border-b-[2px] border-[#605F5E]  text-[20px] lg:text-[22px] font-poppins "
+    : "text-[#ADB7BE] text-[20px] lg:text-[22px] font-poppins  ";
   return (
     <button onClick={selectTab}>
       <p className={`mr-2 font-medium hover:text-white ${buttonClasses}`}>
